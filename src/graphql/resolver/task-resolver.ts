@@ -21,11 +21,9 @@ export const TaskResolver = {
     ): Promise<ITask> => await Task.add(task),
     updateTask: async (
       parent: any,
-      { task }: { task: ITask }
+      { id,task }: {id:string, task: ITask }
     ): Promise<ITask | null> => {
-      const taskId = task.id;
-      delete task.id;
-      return await Task.updateById(taskId, task);
+      return await Task.updateById(id, task);
     },
     deleteTaskById: async (parent: any, {id}:{id: string}): Promise<string> =>
       Task.deleteById(id),

@@ -45,7 +45,7 @@ type Task {
 
   type Mutation {
     createTask(task: TaskInput!): Task!
-    updateTask(task: TaskUpdate!): Task!
+    updateTask(id:ID!,task: TaskUpdate!): Task!
     deleteTaskById(id: ID!): String!
   }
   schema {
